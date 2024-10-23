@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
-// const ***Controler = require("../controllers/***** */.js")
+const epiControler = require('../controllers/epiController')
+const funcionarioControler = require('../controllers/funcionarioController')
+const listaControler = require('../controllers/listaController')
 
 // router.get('/', ***Controler.***) 
 
