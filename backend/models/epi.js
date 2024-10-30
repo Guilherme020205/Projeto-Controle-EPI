@@ -12,6 +12,7 @@ const EPIS = database.define('epis', {
         type: Sequelize.STRING,
         allowNull: false
     }
+    
 })
 
 module.exports = EPIS; 
