@@ -4,7 +4,6 @@ const epiControler = require('../controllers/epiController')
 
 router.post('/epiController', epiControler.cadastrarEpi);
 router.get('/epiController', epiControler.listarEpi);
-router.get('/epiController/:id', epiControler.buscarEpiPorId);
 router.put('/epiController/:id', epiControler.atualizarEpi);
 router.delete('/epiController/:id', epiControler.deletarEpi);
 
