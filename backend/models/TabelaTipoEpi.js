@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('./db');
 
-const Setor = database.define('setor', {
+const TipoEPI = database.define('tipoEPI', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -14,4 +14,4 @@ const Setor = database.define('setor', {
     }
 });
 
-module.exports = Setor;
+module.exports = TipoEPI;

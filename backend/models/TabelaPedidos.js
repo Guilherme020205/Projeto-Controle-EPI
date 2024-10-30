@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize')
-const database = require('./db')
-const EPIS = require('./TabelaEpis')
-const Funcionario = require('./TabelaFuncionario')
+const Sequelize = require('sequelize');
+const database = require('./db');
+const Funcionario = require('./TabelaFuncionario'); // Importa o modelo Funcionario
+const EPIS = require('./TabelaEpis'); // Importa o modelo EPI
 
-const Pedidos = database.define('pedidos', {
+const Pedido = database.define('pedidos', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,6 +12,7 @@ const Pedidos = database.define('pedidos', {
     },
     idFuncionario: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
             model: Funcionario,
             key: 'id'
@@ -19,60 +20,92 @@ const Pedidos = database.define('pedidos', {
     },
     idOculos: {
         type: Sequelize.INTEGER,
+        allowNull: true, // Permite que seja nulo se não houver oculos no pedido
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeOculos: Sequelize.INTEGER,
+    quantidadeOculos: {
+        type: Sequelize.INTEGER,
+        allowNull: true // Permite que seja nulo se não houver oculos no pedido
+    },
     idMascara: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeMascara: Sequelize.INTEGER,
-    idluva: {
+    quantidadeMascara: {
         type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    idLuva: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeLuva: Sequelize.INTEGER,
+    quantidadeLuva: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     idBota: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeBota: Sequelize.INTEGER,
+    quantidadeBota: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     idCapacete: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeCapacete: Sequelize.INTEGER,
+    quantidadeCapacete: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     idFone: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeFone: Sequelize.INTEGER,
+    quantidadeFone: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     idColete: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
             model: EPIS,
             key: 'id'
         }
     },
-    quantidadeColete: Sequelize.INTEGER,
-})
+    quantidadeColete: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    }
+});
 
-module.exports = Pedidos
+// Definições de associações
+Funcionario.hasMany(Pedido, { foreignKey: 'idFuncionario', as: 'pedidos' });
+Pedido.belongsTo(Funcionario, { foreignKey: 'idFuncionario', as: 'funcionario' });
+
+module.exports = Pedido;

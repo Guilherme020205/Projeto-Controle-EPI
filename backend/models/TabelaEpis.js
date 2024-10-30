@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const database = require('./db')
-const epi = require('./epi')
+const Sequelize = require('sequelize');
+const database = require('./db');
+const TipoEPI = require('./TabelaTipoEpi'); // Importa o modelo TipoEPI
 
 const EPIS = database.define('epis', {
     id: {
@@ -15,8 +15,9 @@ const EPIS = database.define('epis', {
     },
     idTipo: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-            model: epi,
+            model: TipoEPI,  // modelo que idTipo referencia
             key: 'id'
         }
     },
@@ -28,6 +29,9 @@ const EPIS = database.define('epis', {
         type: Sequelize.INTEGER,
         allowNull: false
     }
-})
+});
 
-module.exports = EPIS
+TipoEPI.hasMany(EPIS, { foreignKey: 'idTipo', as: 'epis' });
+EPIS.belongsTo(TipoEPI, { foreignKey: 'idTipo', as: 'tipoEpi' });
+
+module.exports = EPIS;

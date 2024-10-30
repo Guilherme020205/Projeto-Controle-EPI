@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const database = require('./db')
-const Setor = require('./TabelaSetor')
+const Sequelize = require('sequelize');
+const database = require('./db');
+const Setor = require('./TabelaSetor'); // Importa o modelo Setor
 
 const Funcionario = database.define('funcionario', {
     id: {
@@ -14,15 +14,20 @@ const Funcionario = database.define('funcionario', {
         allowNull: false
     },
     telefone: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
     },
     idSetor: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
             model: Setor,
             key: 'id'
         }
     }
-})
+});
 
-module.exports = Funcionario
+// Definição das associações
+Setor.hasMany(Funcionario, { foreignKey: 'idSetor', as: 'funcionarios' });
+Funcionario.belongsTo(Setor, { foreignKey: 'idSetor', as: 'setor' });
+
+module.exports = Funcionario;
