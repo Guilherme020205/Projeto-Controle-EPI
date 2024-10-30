@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('./db');
-const Setor = require('./TabelaSetor'); // Importa o modelo Setor
+const Setor = require('./TabelaSetor'); 
 
 const Funcionario = database.define('funcionario', {
     id: {

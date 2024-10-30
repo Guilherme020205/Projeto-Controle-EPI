@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('./db');
-const TipoEPI = require('./TabelaTipoEpi'); // Importa o modelo TipoEPI
+const TipoEPI = require('./TabelaTipoEpi'); 
 
 const EPIS = database.define('epis', {
     id: {
@@ -17,7 +17,7 @@ const EPIS = database.define('epis', {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: TipoEPI,  // modelo que idTipo referencia
+            model: TipoEPI,  
             key: 'id'
         }
     },

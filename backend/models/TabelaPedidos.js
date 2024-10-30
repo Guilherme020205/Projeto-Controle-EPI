@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('./db');
-const Funcionario = require('./TabelaFuncionario'); // Importa o modelo Funcionario
-const EPIS = require('./TabelaEpis'); // Importa o modelo EPI
+const Funcionario = require('./TabelaFuncionario'); 
+const EPIS = require('./TabelaEpis'); 
 
 const Pedido = database.define('pedidos', {
     id: {
@@ -20,7 +20,7 @@ const Pedido = database.define('pedidos', {
     },
     idOculos: {
         type: Sequelize.INTEGER,
-        allowNull: true, // Permite que seja nulo se não houver oculos no pedido
+        allowNull: true, 
         references: {
             model: EPIS,
             key: 'id'
@@ -28,7 +28,7 @@ const Pedido = database.define('pedidos', {
     },
     quantidadeOculos: {
         type: Sequelize.INTEGER,
-        allowNull: true // Permite que seja nulo se não houver oculos no pedido
+        allowNull: true 
     },
     idMascara: {
         type: Sequelize.INTEGER,
