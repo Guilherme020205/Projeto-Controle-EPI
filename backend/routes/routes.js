@@ -10,4 +10,4 @@ router.post('/cadastrarFuncionario', funcionarioControler.cadastrarFuncionario)
 
 router.get('/loginController', loginController.loginUser) 
 
-module.exports = router
+module.exports = router 
