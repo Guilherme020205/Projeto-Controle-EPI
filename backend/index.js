@@ -1,10 +1,11 @@
 (async () => {
-    const database = require('./models/db')
-    const Epis = require('./models/TabelaEpis')
-    const Funcionario = require('./models/TabelaFuncionario')
+    const database = require('./models/db.js')
+    const Epis = require('./models/TabelaEpis.js')
+    const Funcionario = require('./models/TabelaFuncionario.js')
     const Login = require('./models/TabelaLogin.js')
-    const Pedidos = require('./models/TabelaPedidos')
-    const Setor = require('./models/TabelaSetor')
+    const Pedidos = require('./models/TabelaPedidos.js')
+    const Setor = require('./models/TabelaSetor.js')
+    const tipoEpi = require('./models/TabelaTipoEpi.js')
     
     await database.sync();
     
@@ -13,7 +14,6 @@
     const criarLogin = await Login.create()
     const criarPedidos = await Pedidos.create()
     const criarSetor = await Setor.create()
-    console.log(novoEPI);
-
-
+    const criarTipoEpi = await tipoEpi.create()
+ 
 })();
