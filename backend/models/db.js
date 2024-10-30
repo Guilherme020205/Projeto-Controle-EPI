@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize("postgresql://guilherme:q3ZkVin2AltDRYaTzJ6Rgg@fanged-phoenix-3150.j77.aws-us-east-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")  
+const sequelize = new Sequelize("postgresql://guilherme:q3ZkVin2AltDRYaTzJ6Rgg@fanged-phoenix-3150.j77.aws-us-east-1.cockroachlabs.cloud:26257/sa?sslmode=verify-full")  
 
 module.exports = sequelize;
 
