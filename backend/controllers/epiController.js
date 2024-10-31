@@ -1,9 +1,8 @@
-let Epi = [
-    { id: 1, nome: "luva", idTipo: 1, qtdeEstoque: 50, qtdeSaida: 10 }
-];
+let Epi = require("../models/TabelaEpis.js")
 
-exports.listarEpi = (req, res) => {
-    res.status(200).json({ Epi });
+exports.listarEpi = async (req, res) => {
+    const resposta = await Epi.findAll();
+    res.status(200).json( resposta );
 };
 
 exports.cadastrarEpi = (req, res) => {
