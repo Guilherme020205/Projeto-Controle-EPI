@@ -1,34 +1,65 @@
-let Epi = require("../models/TabelaEpis.js")
+const Epi = require("../models/TabelaEpis.js");
 
 exports.listarEpi = async (req, res) => {
-    const resposta = await Epi.findAll();
-    res.status(200).json( resposta );
-};
-
-exports.cadastrarEpi = (req, res) => {
-    const novoEpi = req.body;
-    novoEpi.id = Epi.length + 1; // Adiciona um ID novo automaticamente
-    Epi.push(novoEpi);
-    res.status(201).send({ mensagem: 'Epi adicionado com sucesso!' });
-};
-
-exports.atualizarEpi = (req, res) => {
-    const { id } = req.params;
-    const { nome, idTipo, qtdeEstoque, qtdeSaida } = req.body;
-
-    const epiIndex = Epi.findIndex(epi => epi.id === Number(id));
-    if (epiIndex === -1) {
-        return res.status(404).send({ mensagem: 'Epi não encontrado.' });
+    try {
+        const resposta = await Epi.findAll();
+        res.status(200).json(resposta);
+    } catch (error) {
+        res.status(500).send({ mensagem: 'Erro ao listar EPIs.', erro: error.message });
     }
-
-    // Atualizando os campos do objeto Epi encontrado
-    Epi[epiIndex] = { id: Number(id), nome, idTipo, qtdeEstoque, qtdeSaida };
-    res.status(200).send({ mensagem: 'Epi atualizado com sucesso!' });
 };
 
-exports.deletarEpi = (req, res) => {
-    const idEpi = Number(req.params.id);
-    Epi = Epi.filter(epi => epi.id !== idEpi);
+exports.cadastrarEpi = async (req, res) => {
+    const { nome, idTipo, quantidade_estoque, quantidade_saida } = req.body;
+    try {
+        const novoEpi = await Epi.create({
+            nome,
+            idTipo,
+            quantidade_estoque,
+            quantidade_saida
+        });
+        res.status(201).send({ mensagem: 'Epi adicionado com sucesso!', novoEpi });
+    } catch (error) {
+        res.status(500).send({ mensagem: 'Erro ao cadastrar EPI.', erro: error.message });
+    }
+};
 
-    res.status(200).send({ mensagem: 'Epi deletado com sucesso!' });
+exports.atualizarEpi = async (req, res) => {
+    const { id } = req.params;
+    const { nome, idTipo, quantidade_estoque, quantidade_saida } = req.body;
+
+    try {
+        const epi = await Epi.findByPk(id);
+        if (!epi) {
+            return res.status(404).send({ mensagem: 'Epi não encontrado.' });
+        }
+
+        await epi.update({
+            nome,
+            idTipo,
+            quantidade_estoque,
+            quantidade_saida
+        });
+        res.status(200).send({ mensagem: 'Epi atualizado com sucesso!', epi });
+    } catch (error) {
+        res.status(500).send({ mensagem: 'Erro ao atualizar EPI.', erro: error.message });
+    }
+};
+
+exports.deletarEpi = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const rowsDeleted = await Epi.destroy({
+            where: { id }
+        });
+
+        if (rowsDeleted === 0) {
+            return res.status(404).send({ mensagem: 'Epi não encontrado.' });
+        }
+
+        res.status(200).send({ mensagem: 'Epi deletado com sucesso!' });
+    } catch (error) {
+        res.status(500).send({ mensagem: 'Erro ao deletar EPI.', erro: error.message });
+    }
 };
