@@ -4,6 +4,10 @@ const Funcionario = require('./TabelaFuncionario');
 const EPIS = require('./TabelaEpis'); 
 
 const Pedido = database.define('pedidos', {
+    devolvido: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
