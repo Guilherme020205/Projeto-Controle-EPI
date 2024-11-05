@@ -10,15 +10,15 @@ router.get('/epiController', epiControler.listarEpi);
 router.put('/epiController/:id', epiControler.atualizarEpi);
 router.delete('/epiController/:id', epiControler.deletarEpi);
 
-router.get('/listaController', listaControler.listaPedidos);
-router.post('/listaController', listaControler.cadastrarPedidos);
-router.put('/listaController/:id', listaControler.devolverPedidos);
 
 router.get('/funcionarios', funcionarioController.listarFuncionarios);
 router.post('/funcionarios', funcionarioController.adicionarFuncionario);
 router.put('/funcionarios/:id', funcionarioController.editarFuncionario);
 router.delete('/funcionarios/:id', funcionarioController.excluirFuncionario);
 
+router.get('/listaController', listaControler.listaPedidos);
+router.post('/listaController', listaControler.cadastrarPedidos);
+router.put('/listaController/:id', listaControler.devolverPedidos);
 router.get('/loginController', loginController.loginUser) 
 
 module.exports = router 

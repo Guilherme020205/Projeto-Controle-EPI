@@ -11,11 +11,11 @@ exports.listaPedidos = async (req, res) => {
 
 
 exports.cadastrarPedidos = async (req, res) => {
-    const { devolvido, idpedido, idOculos, quantidadeOculos, idMascara, quantidadeMascara, idLuva, quantidadeLuva, idBota, quantidadeBota, idCapacete, quantidadeCapacete, idFone, quantidadeFone, idColete, quantidadeColete } = req.body;
+    const { devolvido, idFuncionario, idOculos, quantidadeOculos, idMascara, quantidadeMascara, idLuva, quantidadeLuva, idBota, quantidadeBota, idCapacete, quantidadeCapacete, idFone, quantidadeFone, idColete, quantidadeColete } = req.body;
     try {
         const novoEpi = await listaPedidos.create({
             devolvido,
-            idpedido,
+            idFuncionario,
             idOculos,
             quantidadeOculos,
             idMascara,
