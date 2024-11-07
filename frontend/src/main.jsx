@@ -1,10 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './index.css'
-import App from './App.jsx'
+import PgLogin from './pages/login'
+import PgHome from './pages/home'
+
+const paginas = createBrowserRouter([
+  {path: "/", element: <PgLogin/>},
+  {path: "/home", element: <PgHome/>}
+])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+
+  <RouterProvider router={paginas} />
+
 )
