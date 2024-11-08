@@ -64,3 +64,48 @@
         }
     }
 }
+
+@media screen and (min-width: 1300px) {
+
+    .box-principal {
+        max-width: 500px;
+        height: 500px;
+        gap: 100px;
+    
+        h2 {
+            font-size: 40px;
+         }
+    }
+
+    .box-form {
+        gap: 2px;
+    
+        form {
+            gap: 0px;
+            width: 300px;
+    
+            input {
+                margin-bottom: 5px;
+                padding: 15px 10px 15px 15px;
+                
+            }
+        }
+    
+        p {
+             font-size: 20px;
+        }
+    }
+    
+    .box-button {
+    
+        button {
+            padding: 8px 30px;
+            font-size: 25px;
+            cursor: pointer;
+    
+            .icon-CiLogin {
+                font-size: 30px;
+            }
+        }
+    }
+  }
