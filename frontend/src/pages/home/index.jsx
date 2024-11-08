@@ -3,12 +3,18 @@ export default function PgHome() {
 
         <>
             <h1>Olá Mundo!</h1>
-            <p>Olá Mundo!</p> 
-            <p>Olá Mundo!</p> 
-            <p>Olá Mundo!</p> 
-            <p>Olá Mundo!</p> 
-            <p>Olá Mundo!</p> 
-            <p>Olá Mundo!</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            <p>PgHome</p> 
+            
         </>
 
     )
