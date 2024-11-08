@@ -19,6 +19,7 @@ router.delete('/funcionarios/:id', funcionarioController.excluirFuncionario);
 router.get('/listaController', listaControler.listaPedidos);
 router.post('/listaController', listaControler.cadastrarPedidos);
 router.put('/listaController/:id', listaControler.devolverPedidos);
-router.get('/loginController', loginController.loginUser) 
+
+router.post('/loginController', loginController.loginUser) 
 
 module.exports = router 
