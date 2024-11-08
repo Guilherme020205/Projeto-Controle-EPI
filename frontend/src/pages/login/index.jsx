@@ -3,12 +3,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { CiLogin } from "react-icons/ci";
-import Header from "./header/index.jsx";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function PgLogin() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+
+    const navigate = useNavigate();
 
     async function login_button() {
 
@@ -24,8 +26,9 @@ export default function PgLogin() {
 
             // Se o login for bem-sucedido
             if (resposta.status === 200) {
-                toast.success("Login realizado com sucesso!");
-                // redirecionar o usuario  
+                // toast.success("Login realizado com sucesso!");
+                // redirecionar o usuario 
+                navigate('/home');
             }
         } catch (error) {
 
@@ -40,10 +43,6 @@ export default function PgLogin() {
     return (
         <>
             <ToastContainer />
-            
-            <header>
-                <Header />
-            </header>
 
             <div className="box-principal">
                 <div className="box-form">
