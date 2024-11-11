@@ -27,7 +27,6 @@ export default function PgLogin() {
             // Se o login for bem-sucedido
             if (resposta.status === 200) {
                 // toast.success("Login realizado com sucesso!");
-                // redirecionar o usuario 
                 navigate('/home');
             }
         } catch (error) {
