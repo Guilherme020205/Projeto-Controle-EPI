@@ -41,7 +41,7 @@ export default function PgLogin() {
     }
 
     return (
-        <>
+        <div className="div-principal">
             <ToastContainer />
 
             <div className="box-principal">
@@ -68,10 +68,12 @@ export default function PgLogin() {
                         />
                     </form>
                 </div>
-                <div className="box-button">
+
+                <div className="box-button-login">
                     <button onClick={login_button}>Login <CiLogin className="icon-CiLogin" /></button>
                 </div>
+                
             </div>
-        </>
+        </div>
     );
 }

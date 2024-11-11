@@ -37,6 +37,7 @@
         border: none;
         padding: 10px;
         border-radius: 20px;
+        cursor: pointer;
 
         .icon-button-header {
             color: var(--black);

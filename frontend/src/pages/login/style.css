@@ -1,5 +1,4 @@
 .box-principal {
-    margin: 100px 50px;
     background-color: var(--cinza-escuro);
     max-width: 300px;
     display: flex;
@@ -39,7 +38,7 @@
     }
 }
 
-.box-button {
+.box-button-login {
 
     display: flex;
     justify-content: end;
