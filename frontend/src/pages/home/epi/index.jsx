@@ -1,16 +1,21 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 
 export default function PgEpis() {
 
-    async function listarEpis() {
-        
+    useEffect(() => {
+        listarEpis()
+    },[])
+
+    const listarEpis = async () => {
         try{
             const url = "http://localhost:8080/epiController";
+            const resposta = await axios.get(url)
+            console.log(resposta.data)
 
-        } catch {
-
+        } catch(error) {
+            console.log(error)
         }
-
     }
 
     return (

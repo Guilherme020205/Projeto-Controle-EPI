@@ -3,8 +3,8 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    gap: 90px;
-    margin-top: 200px;
+    gap: 70px;
+    margin-top: 150px;
 
 }
 
@@ -37,9 +37,6 @@
         padding: 25px 20px;
         font-size: 40px;
         cursor: pointer;
-
-        .icon-CiLogout {
-            /* font-size: 80px; */
-        }
+ 
     }
 }
