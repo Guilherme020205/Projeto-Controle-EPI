@@ -10,24 +10,35 @@ export default function PgLogin() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    const [botaoLogn, setBotaoLogn] = useState(
+        <>Login <CiLogin className="icon-CiLogin" /></>
+      );
     const navigate = useNavigate();
 
     async function login_button() {
+
+        const mudarTitulo = () => {
+            setBotaoLogn('Entrando ... ');
+          };
 
         if (!email || !senha) {
             toast.error("Email e senha são obrigatórios!");
             return;
         }
 
+        
         try {
+
+            await mudarTitulo()
+
             const url = "http://localhost:8080/loginController";
 
             const resposta = await axios.post(url, { email, senha });
 
             // Se o login for bem-sucedido
             if (resposta.status === 200) {
-                // toast.success("Login realizado com sucesso!");
                 navigate('/home');
+                // await toast.success("Login realizado com sucesso!");
             }
         } catch (error) {
 
@@ -69,7 +80,7 @@ export default function PgLogin() {
                 </div>
 
                 <div className="box-button-login">
-                    <button onClick={login_button}>Login <CiLogin className="icon-CiLogin" /></button>
+                    <button onClick={login_button}>{botaoLogn}</button>
                 </div>
                 
             </div>
