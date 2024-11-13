@@ -71,7 +71,6 @@ export default function PgLogin() {
                 <div className="box-button-login">
                     <button onClick={login_button}>Login <CiLogin className="icon-CiLogin" /></button>
                 </div>
-                
             </div>
         </div>
     );

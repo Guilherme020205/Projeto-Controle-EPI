@@ -4,6 +4,7 @@ const epiControler = require('../controllers/epiController')
 const funcionarioController = require('../controllers/funcionarioController')
 const listaControler = require('../controllers/listaController')
 const loginController = require('../controllers/loginController')
+const tiposEsetorController = require('../controllers/tiposEsetorController.JS')
 
 router.post('/epiController', epiControler.cadastrarEpi);
 router.get('/epiController', epiControler.listarEpi);
@@ -22,4 +23,8 @@ router.put('/listaController/:id', listaControler.devolverPedidos);
 
 router.post('/loginController', loginController.loginUser) 
 
-module.exports = router 
+router.get('/tipos', tiposEsetorController.listarTipos);
+router.get('/setores', tiposEsetorController.listarSetor);
+
+
+module.exports = router
