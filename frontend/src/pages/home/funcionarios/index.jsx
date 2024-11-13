@@ -1,3 +1,5 @@
+import './style.css'
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaWhatsapp } from "react-icons/fa";
@@ -13,7 +15,7 @@ export default function PgFuncionarios() {
         listarFuncionarios();
     }, []);
 
-     const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // Função para buscar os funcionários do backend
     const listarFuncionarios = async () => {
@@ -29,27 +31,30 @@ export default function PgFuncionarios() {
 
     return (
         <div className="div-principal">
-            <h1>Funcionários</h1>
-            <div>
-            {funcionarios.length > 0 ? (
-                <ul>
-                    {funcionarios.map((funcionario) => (
-                        <li key={funcionario.id}>
-                            <p>Nome: {funcionario.nome}</p>
-                            <button><FaWhatsapp /></button>
-                            <button><CiSearch /></button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Carregando funcionários ou nenhum funcionário cadastrado.</p>
-            )}
-            </div>
-            <div>
-                <button onClick={(() => {navigate('/home/funcionarios/cadastro')})}>Cadastrar Funcionário</button>
+            <div className='box-geral-funcinarios'>
+                <div className='box-lista-funcionarios'>
+                    {funcionarios.length > 0 ? (
+                        <ul>
+                            {funcionarios.map((funcionario) => (
+                                <li key={funcionario.id}>
+                                    <p>{funcionario.nome}</p>
+                                    <div className='box-botao-opcoes-funcionario'>
+                                        <button>
+                                            <a href={`https://web.whatsapp.com/send?phone=+${funcionario.telefone}&text=Ola%20mundo`}><FaWhatsapp className='icon-opcoes-funcionario'/></a>
+                                        </button>
+                                        <button><CiSearch className='icon-opcoes-funcionario'/></button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>Carregando funcionários ou nenhum funcionário cadastrado.</p>
+                    )}
+                </div>
+                <div className='box-botao-funcionarios'>
+                    <button onClick={(() => { navigate('/home/funcionarios/cadastro') })}>Cadastrar Funcionário</button>
+                </div>
             </div>
         </div>
-
-        
     );
 }

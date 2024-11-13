@@ -12,7 +12,8 @@ export default function PgLogin() {
 
     const [botaoLogn, setBotaoLogn] = useState(
         <>Login <CiLogin className="icon-CiLogin" /></>
-      );
+    );
+    
     const navigate = useNavigate();
 
     async function login_button() {

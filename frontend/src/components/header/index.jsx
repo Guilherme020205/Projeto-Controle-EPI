@@ -33,7 +33,7 @@ export default function Header() {
                             <FaHelmetSafety className='icon-button-header'/>
                         </button>
 
-                        <button onClick={() => trocaTela("/home/funcionarios")} className={isActive("/home/funcionarios")}>
+                        <button onClick={() => trocaTela("/home/funcionarios")} className={isActive("/home/funcionarios") || isActive("/home/funcionarios/cadastro")}>
                             <IoIosPeople className='icon-button-header'/>
                         </button>
 

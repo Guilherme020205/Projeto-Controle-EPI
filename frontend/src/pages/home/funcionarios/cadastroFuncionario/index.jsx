@@ -14,21 +14,32 @@ export default function PgCadastroFuncionario() {
     useEffect(() => {
         listarSetores();
     }, []);
-
+    
     const navigate = useNavigate();
+    
+    const [botaoCadastro, setBotaoCadastro] = useState("Cadastrar");
+    const mudarTitulo = (titulo) => {
+        setBotaoCadastro(titulo);
+      };
 
 
-    const listarSetores = async () => {try {
-        const url = "http://localhost:8080/setores";
-        const resposta = await axios.get(url);
-        // Atualiza o estado com os dados recebidos
-        setSetores(resposta.data);
-    } catch (error) {
-        console.error("Erro ao listar setores:", error);
-    }}
+
+    const listarSetores = async () => {
+        try {
+            const url = "http://localhost:8080/setores";
+            const resposta = await axios.get(url);
+            // Atualiza o estado com os dados recebidos
+            setSetores(resposta.data);
+        } catch (error) {
+            console.error("Erro ao listar setores:", error);
+        }
+    }
 
     // Função para lidar com o envio do formulário
     const cadastroFuncionario = async () => {
+
+        await mudarTitulo("Cadastrando...")
+
         try {
             const url = "http://localhost:8080/funcionarios";
             const novoFuncionario = { nome, telefone, idSetor }; // Inclui os campos necessários
@@ -44,6 +55,7 @@ export default function PgCadastroFuncionario() {
                 navigate('/home/funcionarios')
             }
         } catch (error) {
+            await mudarTitulo("Cadastrar")
             console.error("Erro ao cadastrar funcionário:", error);
             setMensagem('Erro ao cadastrar funcionário. Tente novamente.');
         }
@@ -73,17 +85,21 @@ export default function PgCadastroFuncionario() {
                         required
                     />
                 </div>
-                <select
-                    value={idSetor}
-                    onChange={(e) => setIdSetor(e.target.value)}
-                    required
-                >
-                    {setores.map((setores) => (
-                        <option key={setores.id} value= {setores.id}>{setores.nome}</option>
-                    ))}
-                </select>
+                <div>
 
-                <button type="button" onClick={cadastroFuncionario}>Cadastrar</button>
+                    <select
+                        value={idSetor}
+                        onChange={(e) => setIdSetor(e.target.value)}
+                        required
+                    >
+                        <option value={null}>-- Selecionar</option>
+                        {setores.map((setores) => (
+                            <option key={setores.id} value={setores.id}>{setores.nome}</option>
+                        ))}
+                    </select>
+                </div>
+
+                <button type="button" onClick={cadastroFuncionario}>{botaoCadastro}</button>
 
             </form>
             {mensagem && <p>{mensagem}</p>} {/* Exibe a mensagem de sucesso ou erro */}

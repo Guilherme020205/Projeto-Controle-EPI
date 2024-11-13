@@ -10,7 +10,7 @@
 }
 
 * {
-  margin: 10;
+  margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -20,6 +20,6 @@ body{
 }
 
 .div-principal{
-  margin: 100px 50px;
+  margin: 100px 0px 0px 50px;
 }
  
