@@ -1,0 +1,52 @@
+.box-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+
+    label {
+        color: var(--preto);
+        margin-bottom: 2px;
+        padding: 0px 0px 0px 5px;
+    }
+
+    input {
+        padding: 5px 1px 5px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--preto)
+    }
+
+    select {
+        padding: 5px 1px 5px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--preto)
+    }
+
+    .input-nome {
+        width: 300px;
+    }
+
+    .select-setores {
+        width: 250px;
+    }
+
+    
+    .input-telefone {
+        width: 150px;
+    }
+}
+
+.botao-cadastro-funcionario{
+    background-color: var(--azul-botao);
+    border: none;
+    width: 250px;
+    padding: 15px 20px;
+    color: var(--branco);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+}

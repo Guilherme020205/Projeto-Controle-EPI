@@ -1,4 +1,9 @@
+import './style.css'
 import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -14,13 +19,14 @@ export default function PgCadastroFuncionario() {
     useEffect(() => {
         listarSetores();
     }, []);
-    
+
     const navigate = useNavigate();
-    
-    const [botaoCadastro, setBotaoCadastro] = useState("Cadastrar");
+
+    const [botaoCadastro, setBotaoCadastro] = useState("Cadastrar funcionário");
+
     const mudarTitulo = (titulo) => {
         setBotaoCadastro(titulo);
-      };
+    };
 
 
 
@@ -48,61 +54,67 @@ export default function PgCadastroFuncionario() {
             const resposta = await axios.post(url, novoFuncionario);
 
             if (resposta.status === 201) {
-                setMensagem('Funcionário cadastrado com sucesso!');
                 setNome(''); // Limpa o campo nome
                 setTelefone(''); // Limpa o campo telefone
                 setIdSetor(''); // Limpa o campo idSetor
                 navigate('/home/funcionarios')
             }
         } catch (error) {
-            await mudarTitulo("Cadastrar")
+            await mudarTitulo("Cadastrar funcionário")
             console.error("Erro ao cadastrar funcionário:", error);
-            setMensagem('Erro ao cadastrar funcionário. Tente novamente.');
+            toast.error('Erro ao cadastrar funcionário. Tente novamente.');
         }
     };
 
     return (
         <div className="div-principal">
-            <h1>Cadastrar Funcionário</h1>
-            <form>
-                <div>
-                    <label>Nome:</label>
-                    <input
-                        type="text"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                        placeholder="Digite o nome do funcionário"
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Telefone:</label>
-                    <input
-                        type="text"
-                        value={telefone}
-                        onChange={(e) => setTelefone(e.target.value)}
-                        placeholder="Digite o telefone do funcionário"
-                        required
-                    />
-                </div>
-                <div>
+            <ToastContainer />
+            <div>
+                <form className='box-form'>
+                    <div className='box-info'>
+                        <label>Nome </label>
+                        <input
+                            className='input-nome'
+                            type="text"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
+                            placeholder="ex: Mario Bros"
+                            required
+                        />
+                    </div>
 
-                    <select
-                        value={idSetor}
-                        onChange={(e) => setIdSetor(e.target.value)}
-                        required
-                    >
-                        <option value={null}>-- Selecionar</option>
-                        {setores.map((setores) => (
-                            <option key={setores.id} value={setores.id}>{setores.nome}</option>
-                        ))}
-                    </select>
-                </div>
+                    <div className='box-info'>
+                        <label>Setor </label>
+                        <select
+                            className='select-setores'
+                            value={idSetor}
+                            onChange={(e) => setIdSetor(e.target.value)}
+                            required
+                        >
+                            <option value={null}>-- Selecionar</option>
+                            {setores.map((setores) => (
+                                <option key={setores.id} value={setores.id}>{setores.nome}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                <button type="button" onClick={cadastroFuncionario}>{botaoCadastro}</button>
+                    <div className='box-info'>
+                        <label>Telefone </label>
+                        <input
+                            className='input-telefone'
+                            type="text"
+                            value={telefone}
+                            onChange={(e) => setTelefone(e.target.value)}
+                            placeholder="(xx) x xxxx-xxxx"
+                            required
+                        />
+                    </div>
 
-            </form>
-            {mensagem && <p>{mensagem}</p>} {/* Exibe a mensagem de sucesso ou erro */}
+
+                    <button type="button" onClick={cadastroFuncionario} className='botao-cadastro-funcionario'>{botaoCadastro}</button>
+
+                </form>
+            </div>
         </div>
     );
 }

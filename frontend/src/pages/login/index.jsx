@@ -18,8 +18,8 @@ export default function PgLogin() {
 
     async function login_button() {
 
-        const mudarTitulo = () => {
-            setBotaoLogn('Entrando ... ');
+        const mudarTitulo = (titulo) => {
+            setBotaoLogn(titulo);
           };
 
         if (!email || !senha) {
@@ -30,7 +30,7 @@ export default function PgLogin() {
         
         try {
 
-            await mudarTitulo()
+            await mudarTitulo('Entrando ... ')
 
             const url = "http://localhost:8080/loginController";
 
@@ -42,7 +42,7 @@ export default function PgLogin() {
                 // await toast.success("Login realizado com sucesso!");
             }
         } catch (error) {
-
+            await mudarTitulo(<>Login <CiLogin className="icon-CiLogin" /></>)
             if (error.response && error.response.status === 401) {
                 toast.error("Email ou senha incorretos");
             } else {

@@ -78,10 +78,10 @@
     }
 
     .box-form {
-        gap: 2px;
+        gap: 20px;
     
         form {
-            gap: 0px;
+            gap: 20px;
             width: 300px;
     
             input {
