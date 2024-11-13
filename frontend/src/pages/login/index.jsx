@@ -82,7 +82,6 @@ export default function PgLogin() {
                 <div className="box-button-login">
                     <button onClick={login_button}>{botaoLogn}</button>
                 </div>
-                
             </div>
         </div>
     );
