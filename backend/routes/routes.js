@@ -11,8 +11,8 @@ router.get('/epiController', epiControler.listarEpi);
 router.put('/epiController/:id', epiControler.atualizarEpi);
 router.delete('/epiController/:id', epiControler.deletarEpi);
 
-
 router.get('/funcionarios', funcionarioController.listarFuncionarios);
+router.get('/funcionarios/:id', funcionarioController.buscarFuncionarioPorId);
 router.post('/funcionarios', funcionarioController.adicionarFuncionario);
 router.put('/funcionarios/:id', funcionarioController.editarFuncionario);
 router.delete('/funcionarios/:id', funcionarioController.excluirFuncionario);

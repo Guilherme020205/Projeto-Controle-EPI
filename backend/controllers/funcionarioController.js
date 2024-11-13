@@ -13,6 +13,29 @@ exports.listarFuncionarios = async (req, res) => {
     }
 };
 
+exports.buscarFuncionarioPorId = async (req, res) => {
+    try {
+        // Obter o ID do parâmetro da URL
+        const { id } = req.params;
+        
+        // Buscar o funcionário pelo ID
+        const funcionario = await Funcionario.findOne({
+            where: { id },  // Filtra pelo ID fornecido
+            include: [{ model: Setor, as: 'setor' }]  // Inclui o setor relacionado
+        });
+        
+        // Verificar se o funcionário foi encontrado
+        if (!funcionario) {
+            return res.status(404).json({ error: 'Funcionário não encontrado' });
+        }
+        
+        res.json(funcionario);  // Retorna o funcionário encontrado
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar funcionário.' });
+    }
+};
+
+
 // Adicionar um novo funcionário
 exports.adicionarFuncionario = async (req, res) => {
     const { nome, telefone, idSetor } = req.body;

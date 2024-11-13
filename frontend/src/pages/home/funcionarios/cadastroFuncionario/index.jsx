@@ -13,7 +13,6 @@ export default function PgCadastroFuncionario() {
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
     const [idSetor, setIdSetor] = useState('');
-    const [mensagem, setMensagem] = useState('');
     const [setores, setSetores] = useState([]);
 
     useEffect(() => {
