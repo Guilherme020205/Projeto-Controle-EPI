@@ -1,17 +1,22 @@
 const Sequelize = require('sequelize')
 const database = require('./db')
 
-const EPIS = database.define('epis', {
-    id:{
+const Login = database.define('login', {
+    id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    nome: {
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+    senha: {
         type: Sequelize.STRING,
         allowNull: false
     }
 })
 
-module.exports = EPIS; 
+module.exports = Login

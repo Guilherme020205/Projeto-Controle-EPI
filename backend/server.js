@@ -1,5 +1,5 @@
 const express = require('express')
-const port = 3000
+const port = 8080
 const bodyParser = require('body-parser')
 const routes = require('./routes/routes')
 var cors = require('cors')

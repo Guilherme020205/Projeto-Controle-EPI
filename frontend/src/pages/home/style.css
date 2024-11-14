@@ -1,0 +1,42 @@
+.box-principal-home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 70px;
+    margin-top: 150px;
+
+}
+
+.box-funcionario-online {
+    background-color: var(--cinza-escuro);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 250px;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.box-button-sair {
+
+    button {
+        color: var(--branco);
+        background-color: var(--azul-botao);
+        
+        width: 350px;
+
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        flex-direction: row;
+        text-align: center;
+        border: none;
+        border-radius: 20px;
+        padding: 25px 20px;
+        font-size: 40px;
+        cursor: pointer;
+ 
+    }
+}
