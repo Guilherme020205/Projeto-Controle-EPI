@@ -7,6 +7,7 @@ const loginController = require('../controllers/loginController')
 const tiposEsetorController = require('../controllers/tiposEsetorController.JS')
 
 router.post('/epiController', epiControler.cadastrarEpi);
+router.get('/epiController/:id', epiControler.buscarEpiPorId);
 router.get('/epiController', epiControler.listarEpi);
 router.put('/epiController/:id', epiControler.atualizarEpi);
 router.delete('/epiController/:id', epiControler.deletarEpi);

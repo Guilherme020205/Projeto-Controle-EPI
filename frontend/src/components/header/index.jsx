@@ -29,11 +29,11 @@ export default function Header() {
                             <IoIosHome className='icon-button-header'/>
                         </button>
 
-                        <button onClick={() => trocaTela("/home/epis")} className={isActive("/home/epis")}>
+                        <button onClick={() => trocaTela("/home/epis")} className={isActive("/home/epis") || isActive("/home/epis/cadastro")}>
                             <FaHelmetSafety className='icon-button-header'/>
                         </button>
 
-                        <button onClick={() => trocaTela("/home/funcionarios")} className={isActive("/home/funcionarios") || isActive("/home/funcionarios/cadastro") || isActive("/home/funcionarios/editar") || isActive("/home/funcionarios/editar")}>
+                        <button onClick={() => trocaTela("/home/funcionarios")} className={isActive("/home/funcionarios") || isActive("/home/funcionarios/cadastro") || isActive("/home/funcionarios/editar") }>
                             <IoIosPeople className='icon-button-header'/>
                         </button>
 

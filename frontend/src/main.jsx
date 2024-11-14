@@ -10,6 +10,8 @@ import PgLogin from './pages/login';
 import PgHome from './pages/home';
 
 import PgEpis from './pages/home/epi/index.jsx';
+import PgCadastroEpis from './pages/home/epi/cadastroEpi/index.jsx';
+import PgEditarEpis from './pages/home/epi/editarEpi/index.jsx';
 
 import PgFuncionarios from './pages/home/funcionarios/index.jsx';
 import PgCadastroFuncionario from './pages/home/funcionarios/cadastroFuncionario/index.jsx';
@@ -33,7 +35,10 @@ const paginas = createBrowserRouter([
         children: [
             { path: "/", element: <PgLogin /> },
             { path: "/home", element: <PgHome /> },
+
             { path: "/home/epis", element: <PgEpis /> },
+            { path: "/home/epis/cadastro", element: <PgCadastroEpis /> },
+            { path: "/home/epis/editar/:id", element: <PgEditarEpis /> },
 
             { path: "/home/funcionarios", element: <PgFuncionarios /> },
             { path: "/home/funcionarios/cadastro", element: <PgCadastroFuncionario /> },

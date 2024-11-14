@@ -1,4 +1,5 @@
 const Epi = require("../models/TabelaEpis.js");
+const TipoEpi = require("../models/TabelaTipoEpi.js"); 
 
 exports.listarEpi = async (req, res) => {
     try {
@@ -8,6 +9,27 @@ exports.listarEpi = async (req, res) => {
         res.status(500).send({ mensagem: 'Erro ao listar EPIs.', erro: error.message });
     }
 };
+
+exports.buscarEpiPorId = async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        const epi = await Epi.findOne({
+            where: { id },
+            include: [{ model: TipoEpi, as: 'tipoEpi' }]  
+        });
+        
+        if (!epi) {
+            return res.status(404).json({ error: 'EPI não encontrado' });
+        }
+        
+        res.json(epi);
+    } catch (error) {
+        console.error("Erro ao buscar EPI:", error);
+        res.status(500).json({ error: 'Erro ao buscar EPI.', detalhe: error.message });
+    }
+};
+
 
 exports.cadastrarEpi = async (req, res) => {
     const { nome, idTipo, quantidade_estoque, quantidade_saida } = req.body;

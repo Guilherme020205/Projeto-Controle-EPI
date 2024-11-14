@@ -1,7 +1,6 @@
 const Funcionario = require('../models/TabelaFuncionario');
 const Setor = require('../models/TabelaSetor');
 
-// Listar todos os funcionários
 exports.listarFuncionarios = async (req, res) => {
     try {
         const funcionarios = await Funcionario.findAll({
@@ -15,29 +14,25 @@ exports.listarFuncionarios = async (req, res) => {
 
 exports.buscarFuncionarioPorId = async (req, res) => {
     try {
-        // Obter o ID do parâmetro da URL
-        const { id } = req.params;
+         const { id } = req.params;
         
-        // Buscar o funcionário pelo ID
-        const funcionario = await Funcionario.findOne({
-            where: { id },  // Filtra pelo ID fornecido
-            include: [{ model: Setor, as: 'setor' }]  // Inclui o setor relacionado
+         const funcionario = await Funcionario.findOne({
+            where: { id },   
+            include: [{ model: Setor, as: 'setor' }]  
         });
         
-        // Verificar se o funcionário foi encontrado
-        if (!funcionario) {
+         if (!funcionario) {
             return res.status(404).json({ error: 'Funcionário não encontrado' });
         }
         
-        res.json(funcionario);  // Retorna o funcionário encontrado
+        res.json(funcionario);   
     } catch (error) {
         res.status(500).json({ error: 'Erro ao buscar funcionário.' });
     }
 };
 
 
-// Adicionar um novo funcionário
-exports.adicionarFuncionario = async (req, res) => {
+ exports.adicionarFuncionario = async (req, res) => {
     const { nome, telefone, idSetor } = req.body;
     try {
         const novoFuncionario = await Funcionario.create({ nome, telefone, idSetor });
@@ -47,8 +42,7 @@ exports.adicionarFuncionario = async (req, res) => {
     }
 };
 
-// Editar um funcionário
-exports.editarFuncionario = async (req, res) => {
+ exports.editarFuncionario = async (req, res) => {
     const { id } = req.params;
     const { nome, telefone, idSetor } = req.body;
     try {
@@ -63,7 +57,6 @@ exports.editarFuncionario = async (req, res) => {
     }
 };
 
-// Excluir um funcionário
 exports.excluirFuncionario = async (req, res) => {
     const { id } = req.params;
     try {
