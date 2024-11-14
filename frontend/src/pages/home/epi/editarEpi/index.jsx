@@ -20,7 +20,7 @@ export default function PgEditarEpi() {
     const [tipos, setTipos] = useState([]);
 
     useEffect(() => {
-        // Carregar os dados do EPI e tipos
+
         buscarEpiPorId();
         listarTipos();
     }, [id]);
@@ -42,7 +42,7 @@ export default function PgEditarEpi() {
 
     const listarTipos = async () => {
         try {
-            const url = 'http://localhost:8080/tipos';  // Alterar para o endpoint correto de tipos
+            const url = 'http://localhost:8080/tipos';   
             const resposta = await axios.get(url);
             setTipos(resposta.data);
         } catch (error) {
@@ -69,7 +69,7 @@ export default function PgEditarEpi() {
             const url = `http://localhost:8080/epiController/${id}`;
             const resposta = await axios.delete(url);
 
-            navigate('/home/epis');  // Redireciona após excluir
+            navigate('/home/epis');   
         } catch (error) {
             console.error('Erro ao excluir EPI:', error);
             toast.error('Erro ao excluir o EPI.');
