@@ -44,7 +44,6 @@ export default function PgFuncionarios() {
                                         </button>
                                         <button>
                                             <a href={`http://localhost:5173/home/funcionarios/editar/${funcionario.id}`}><CiSearch className='icon-opcoes-funcionario' /></a>
-                                            
                                         </button>
                                     </div>
                                 </li>
