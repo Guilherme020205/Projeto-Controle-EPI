@@ -40,9 +40,11 @@ export default function PgFuncionarios() {
                                     <p>{funcionario.nome}</p>
                                     <div className='box-botao-opcoes-funcionario'>
                                         <button>
-                                            <a href={`https://web.whatsapp.com/send?phone=+${funcionario.telefone}&text=Ola%20mundo`}><FaWhatsapp className='icon-opcoes-funcionario'/></a>
+                                            <a href={`https://web.whatsapp.com/send?phone=+${funcionario.telefone}&text=Ola%20mundo`}><FaWhatsapp className='icon-opcoes-funcionario' /></a>
                                         </button>
-                                        <button><CiSearch className='icon-opcoes-funcionario'/></button>
+                                        <button>
+                                            <a href={`http://localhost:5173/home/funcionarios/editar/${funcionario.id}`}><CiSearch className='icon-opcoes-funcionario' /></a>
+                                        </button>
                                     </div>
                                 </li>
                             ))}
