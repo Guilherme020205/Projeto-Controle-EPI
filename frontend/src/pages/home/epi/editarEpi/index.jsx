@@ -1,4 +1,5 @@
-// import './style.css';
+import './style.css';
+
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -135,7 +136,7 @@ export default function PgEditarEpi() {
                     />
                 </div>
 
-                <div className='box-buttons-interacao'>
+                <div className='box-buttons-interacao-epi'>
                     <button type="button" onClick={editarEpi} className='botao-editar-epi'>
                         Salvar alterações
                     </button>
