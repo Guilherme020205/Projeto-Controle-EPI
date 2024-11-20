@@ -37,7 +37,7 @@ export default function Header() {
                             <IoIosPeople className='icon-button-header'/>
                         </button>
 
-                        <button onClick={() => trocaTela("/home/pedidos")} className={isActive("/home/pedidos")}>
+                        <button onClick={() => trocaTela("/home/pedidos")} className={isActive("/home/pedidos") || isActive("/home/pedidos/cadastro")}>
                             <FaClipboardList className='icon-button-header'/>
                         </button>
 

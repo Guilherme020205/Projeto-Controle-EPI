@@ -47,32 +47,36 @@ export default function PgPedidos() {
         <div className="div-principal">
             <div className="box-geral-lista">
                 <div className='box-lista-pedidos'>
-                    <ul className="box-ul1-pedido">
-                        {listaPedidos.map((pedido) => (
-                            <li key={pedido.id} className="li-pricipal">
-                                <div className="box-1-pedido">
-                                    <p>{pedido.funcionario}</p>
-                                    <p className="p-data">{pedido.dataPedido}</p>
-                                </div>
-                                <div className="box-2-pedido">
-                                    <button onClick={() => pedidoDevolvido(pedido.id)}><BiSolidLike /></button>
-                                    {/* Botão para abrir/fechar o modal */}
-                                    <button onClick={() => toggleModal(pedido.id)}>
-                                        {modalState[pedido.id] ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
-                                    </button>
-                                </div>
-                                <br />
-                                {/* Lista de itens, visível se modalState for true */}
-                                <ul className={`ul-modal ${modalState[pedido.id] ? 'show' : ''}`}>
-                                    {pedido.itens.map((item, index) => (
-                                        <li key={index}>
-                                            <p>{item.quantidade}un - {item.nome}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-                        ))}
-                    </ul>
+                    {listaPedidos.length > 0 ? (
+                        <ul className="box-ul1-pedido">
+                            {listaPedidos.map((pedido) => (
+                                <li key={pedido.id} className="li-pricipal">
+                                    <div className="box-1-pedido">
+                                        <p>{pedido.funcionario}</p>
+                                        <p className="p-data">{pedido.dataPedido}</p>
+                                    </div>
+                                    <div className="box-2-pedido">
+                                        <button onClick={() => pedidoDevolvido(pedido.id)}><BiSolidLike /></button>
+                                        {/* Botão para abrir/fechar o modal */}
+                                        <button onClick={() => toggleModal(pedido.id)}>
+                                            {modalState[pedido.id] ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+                                        </button>
+                                    </div>
+                                    <br />
+                                    {/* Lista de itens, visível se modalState for true */}
+                                    <ul className={`ul-modal ${modalState[pedido.id] ? 'show' : ''}`}>
+                                        {pedido.itens.map((item, index) => (
+                                            <li key={index}>
+                                                <p>{item.quantidade}un - {item.nome}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>Carregando pedidos ou nenhum pedido cadastrado.</p>
+                    )}
                 </div>
                 <div className='box-botao-lista'>
                     <button onClick={() => { navigate('/home/pedidos/cadastro') }}>Cadastrar Pedido</button>

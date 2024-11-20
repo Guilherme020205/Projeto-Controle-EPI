@@ -18,7 +18,7 @@ import PgCadastroFuncionario from './pages/home/funcionarios/cadastroFuncionario
 import PgEditarFuncionario from './pages/home/funcionarios/editarFuncionario/index.jsx';
 
 import PgPedidos from './pages/home/pedidos/index.jsx';
-import PgCadastroPedidos from './pages/home/pedidos/cadastroPedido/index.jsx';
+import PgCadastroPedidos from './pages/home/pedidos/cadastroPedido/';
  
 function MainLayout() {
     return (
