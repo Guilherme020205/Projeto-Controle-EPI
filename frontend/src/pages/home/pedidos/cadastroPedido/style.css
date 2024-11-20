@@ -1,0 +1,66 @@
+.box-info-funcionario{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+}
+
+.box-informacao{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    gap: 4px;
+    select{
+        color: var(--black);
+        font-size: 12px;
+        width: 300px;
+    }
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+.botao-cadastro-pedido{ 
+    width: 300px;
+        height: 40px;
+        margin-right: 5px;
+        background-color: var(--azul-botao);
+        color: var(--branco);
+
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+        font: bold;
+
+        cursor: pointer;
+}
+
+@media screen and (min-width: 1300px) {
+ 
+    img{
+        display: flex;
+    }
+
+    .box-div-pai{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .box-div-filho1{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top:10px;
+    }
+
+    .box-div-filho3{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        margin-bottom:80px;
+    }
+     
+}
