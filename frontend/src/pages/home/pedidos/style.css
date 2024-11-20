@@ -1,0 +1,155 @@
+.box-geral-lista {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box-lista-pedidos {
+    .box-ul1-pedido {
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+
+        .li-pricipal {
+            background-color: var(--cinza-escuro);
+
+            .p-data {
+                font-size: 12px;
+                width: 10px;
+            }
+
+            .box-1-pedido {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 50px;
+                margin-bottom: 15px;
+                padding: 20px 0px 0px 10px;
+            }
+
+            .box-2-pedido {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: end;
+                padding: 0px 30px 0px 0px;
+
+                button {
+                    border: none;
+                    background-color: var(--cinza-escuro);
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+            }
+
+            .ul-modal {
+                display: none;
+                background-color: var(--cinza-claro);
+                padding: 5px 30px;
+
+                p {
+                    font-size: 15px;
+                }
+            }
+
+            .ul-modal.show {
+                display: block;
+            }
+
+
+
+        }
+    }
+}
+
+.box-botao-lista {
+    background-color: var(--cinza-escuro);
+    width: 120px;
+    height: 80px;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    border-left: 5px solid var(--azul-botao);
+    border-radius: 5px 0px 0px 5px;
+
+    button {
+        width: 100px;
+        height: 40px;
+        margin-right: 5px;
+        background-color: var(--azul-botao);
+        color: var(--branco);
+
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+        font: bold;
+
+        cursor: pointer;
+    }
+}
+
+
+@media screen and (min-width: 1300px) {
+
+
+    .box-lista-pedidos {
+        .box-ul1-pedido {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .li-pricipal {
+
+                .p-data {
+                    font-size: 15px;
+                }
+
+                .box-1-pedido {
+                    gap: 400px;
+                    margin-bottom: 0px;
+                }
+
+                .box-2-pedido {
+
+                    button {
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .box-botao-lista {
+        background-color: var(--cinza-escuro);
+        width: 250px;
+        height: 80px;
+
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        border-left: 5px solid var(--azul-botao);
+        border-radius: 5px 0px 0px 5px;
+
+        button {
+            width: 200px;
+            height: 40px;
+            margin-right: 5px;
+            background-color: var(--azul-botao);
+            color: var(--branco);
+
+            padding: 5px 20px;
+            border: none;
+            border-radius: 5px;
+            font: bold;
+
+            cursor: pointer;
+        }
+    }
+
+}
