@@ -42,11 +42,11 @@ export default function PgEpis() {
             const icones = {
                 "Oculos": <TbSunglassesFilled />,
                 "Capacete": <FaHelmetSafety />,
-                "Mascara": <FaHeadSideMask />,
+                "Faciais": <FaHeadSideMask />,
                 "Luva": <GiWinterGloves />,
-                "Fone": <FaHeadphones />,
-                "Colete": <FaVest />,
-                "Bota": <GiLeatherBoot />
+                "Auriculares/Abafadores": <FaHeadphones />,
+                "Vestimentas": <FaVest />,
+                "Calçados": <GiLeatherBoot />
             };
 
             // Cria um objeto com id como chave e o ícone correspondente como valor
