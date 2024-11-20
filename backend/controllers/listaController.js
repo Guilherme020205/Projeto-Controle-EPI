@@ -2,6 +2,9 @@ const Pedido = require('../models/TabelaPedidos');
 const Funcionario = require('../models/TabelaFuncionario');
 const Epi = require('../models/TabelaEpis');
 
+const { format } = require('date-fns'); // Importar o format do date-fns
+const { ptBR } = require('date-fns/locale'); // Importar a localidade brasileira (opcional)
+
 exports.listaPedidos = async (req, res) => {
     try {
         // Filtrando para pegar apenas os pedidos com 'devolvido: false'
@@ -13,7 +16,7 @@ exports.listaPedidos = async (req, res) => {
                 {
                     model: Funcionario,
                     as: 'funcionario',
-                    attributes: ['id', 'nome']  // Nome do funcionário
+                    attributes: ['id', 'nome'] // Nome e ID do funcionário
                 }
             ]
         });
@@ -21,7 +24,10 @@ exports.listaPedidos = async (req, res) => {
         // Formatar resposta
         const pedidosFormatados = pedidos.map(pedido => {
             const funcionario = pedido.funcionario.nome;
-            const dataPedido = pedido.createdAt;  // Data e hora do pedido
+            const dataPedido = format(new Date(pedido.createdAt), "dd/MM/yyyy HH:mm", {
+                locale: ptBR
+            }); // Formatar a data e hora do pedido
+
             const itens = [
                 { nome: 'Óculos', quantidade: pedido.quantidadeOculos },
                 { nome: 'Máscara', quantidade: pedido.quantidadeMascara },
@@ -33,8 +39,9 @@ exports.listaPedidos = async (req, res) => {
             ].filter(item => item.quantidade > 0); // Apenas itens com quantidade
 
             return {
+                id: pedido.id, // Adicionando o ID do pedido
                 funcionario,
-                dataPedido,
+                dataPedido, // Data formatada
                 itens
             };
         });
@@ -44,6 +51,8 @@ exports.listaPedidos = async (req, res) => {
         res.status(500).send({ mensagem: 'Erro ao listar pedidos.', erro: error.message });
     }
 };
+
+
 
 
 exports.cadastrarPedidos = async (req, res) => {

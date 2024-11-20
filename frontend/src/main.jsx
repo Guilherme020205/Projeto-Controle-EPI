@@ -18,7 +18,8 @@ import PgCadastroFuncionario from './pages/home/funcionarios/cadastroFuncionario
 import PgEditarFuncionario from './pages/home/funcionarios/editarFuncionario/index.jsx';
 
 import PgPedidos from './pages/home/pedidos/index.jsx';
-
+import PgCadastroPedidos from './pages/home/pedidos/cadastroPedido/index.jsx';
+ 
 function MainLayout() {
     return (
         <>
@@ -45,7 +46,8 @@ const paginas = createBrowserRouter([
             { path: "/home/funcionarios/editar/:id", element: <PgEditarFuncionario /> },
 
             { path: "/home/pedidos", element: <PgPedidos /> },
-        ],
+            { path: "/home/pedidos/cadastro", element: <PgCadastroPedidos /> },
+         ],
     },
 ]);
 
