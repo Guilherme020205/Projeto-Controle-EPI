@@ -148,14 +148,18 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeOculos}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeOculos: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeOculos: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
-
                                 />
+
                             </div>
 
                             <div className='box-informacao'>
@@ -175,9 +179,13 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeMascara}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeMascara: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeMascara: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -201,9 +209,13 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeLuva}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeLuva: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeLuva: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -227,9 +239,13 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeBota}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeBota: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeBota: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -264,9 +280,13 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeCapacete}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeCapacete: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeCapacete: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -287,12 +307,17 @@ export default function PgCadastroPedido() {
                                         </option>
                                     ))}
                                 </select>
+                               
                                 <input
                                     type="number"
                                     value={pedido.quantidadeFone}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeFone: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeFone: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -316,9 +341,13 @@ export default function PgCadastroPedido() {
                                 <input
                                     type="number"
                                     value={pedido.quantidadeColete}
-                                    onChange={(e) =>
-                                        setPedido({ ...pedido, quantidadeColete: parseInt(e.target.value, 10) || 0 })
-                                    }
+                                    onChange={(e) => {
+                                        let value = parseInt(e.target.value, 10) || 0;
+                                        if (value > 1) value = 1;
+                                        if (value < 0) value = 0;
+
+                                        setPedido({ ...pedido, quantidadeColete: value });
+                                    }}
                                     placeholder="0"
                                     min="0"
                                     max="1"
@@ -328,7 +357,7 @@ export default function PgCadastroPedido() {
                         </div>
 
                     </div>
-                        <button type="button" onClick={cadastroPedido} className='botao-cadastro-pedido'>{botaoCadastro}</button>
+                    <button type="button" onClick={cadastroPedido} className='botao-cadastro-pedido'>{botaoCadastro}</button>
                 </form>
             </div>
         </div>
