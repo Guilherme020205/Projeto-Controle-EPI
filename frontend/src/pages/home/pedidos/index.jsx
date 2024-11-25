@@ -19,6 +19,8 @@ export default function PgPedidos() {
             const url = "http://localhost:8080/listaController";
             const resposta = await axios.get(url);
             setListaPedidos(resposta.data);
+            console.log(resposta.data);
+
         } catch (error) {
             console.log("Erro ao listar pedidos:", error);
         }
