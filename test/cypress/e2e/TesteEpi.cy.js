@@ -45,10 +45,21 @@ describe('Epi Principal', () => {
     });
     it('Excluir  EPI', () => {
         cy.visit('http://localhost:5173/home/epis')
-        // cy.get(':nth-child(11) > .box-opcoes-epi > button > a > svg', { timeout: 10000 }) // Timeout ajustado para 10s
-        //     .should('exist') // Aguarda o elemento existir no DOM
-        //     .click()
-        //     .should('have.value')
-        // cy.get('.botao-excluir-epi').click()
+        cy.get(':nth-child(11) > .box-opcoes-epi > button > a > svg', { timeout: 10000 }) // Timeout ajustado para 10s
+            .should('exist') // Aguarda o elemento existir no DOM
+            .click()
+        cy.get('.input-nome')
+            .should('have.value', 'teste mudando')
+            .clear()
+        cy.get('.select-tipos')
+            .should('have.value', '1016624272504815617')
+            .select('-- Selecionar')
+        cy.get(':nth-child(3) > .input-quantidade')
+            .should('have.value', '5')
+            .clear()
+        cy.get(':nth-child(4) > .input-quantidade')
+            .should('have.value', '1')
+            .clear()
+        cy.get('.botao-excluir-epi').click()
     });
 })
