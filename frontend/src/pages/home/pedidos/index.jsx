@@ -60,9 +60,11 @@ export default function PgPedidos() {
                                     <div className="box-2-pedido">
                                         <button onClick={() => pedidoDevolvido(pedido.id)}><BiSolidLike /></button>
                                         {/* Botão para abrir/fechar o modal */}
-                                        <button onClick={() => toggleModal(pedido.id)}>
-                                            {modalState[pedido.id] ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
-                                        </button>
+                                        <div className="modalll">
+                                            <button onClick={() => toggleModal(pedido.id)}>
+                                                {modalState[pedido.id] ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+                                            </button>
+                                        </div>
                                     </div>
                                     <br />
                                     {/* Lista de itens, visível se modalState for true */}
